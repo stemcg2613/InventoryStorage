@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InventoryStorage.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Inventory Storage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="15">
+
+            <Label
+                Text="Steven McGraw - Inventory Storage"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Please provide the following information:"
+                FontSize="18" />
+
+            <Label Text="Item ID" />
+            <Entry
+                x:Name="ItemIDEntry"
+                Placeholder="Enter item ID" />
+
+            <Label Text="Item Name" />
+            <Entry
+                x:Name="ItemNameEntry"
+                Placeholder="Enter item name" />
+
+            <Label Text="Item Description" />
+            <Entry
+                x:Name="ItemDescriptionEntry"
+                Placeholder="Enter item description" />
+
+            <Button
+                Text="Save"
+                Clicked="OnSaveClicked" />
+
+            <Label
+                Text="Stored Items"
+                FontSize="22"
+                FontAttributes="Bold"
+                Margin="0,15,0,0" />
+
+            <CollectionView
+                x:Name="ItemsCollectionView">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout
+                            Padding="10"
+                            Spacing="3">
+
+                            <Label
+                                Text="{Binding ItemID}"
+                                FontAttributes="Bold" />
+
+                            <Label
+                                Text="{Binding ItemName}" />
+
+                            <Label
+                                Text="{Binding ItemDescription}" />
+
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
